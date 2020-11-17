@@ -1,0 +1,7 @@
+<div *ngIf="pelicula != null" style="margin: auto; width: 50%; text-align: center; background-color: lightcyan;">
+    <h1>{{ pelicula.titulo }}</h1>
+    <img src="{{ pelicula.foto }}" style="width: 400px; height: 400px" /><hr />
+    <p style="font-weight: bold;">{{ pelicula.argumento }}</p><br />
+    <p>Duración: {{ pelicula.duracion }} minutos</p>
+    <p>Precio: {{ pelicula.precio }}€</p>
+</div>
