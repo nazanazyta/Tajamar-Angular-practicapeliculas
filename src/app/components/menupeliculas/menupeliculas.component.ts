@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Genero } from './../../models/genero';
 import { PeliculaService } from './../../services/pelicula.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-peliculas',
@@ -9,24 +9,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MenuPeliculasComponent implements OnInit {
   public generos: Array<Genero>;
-  public texto: string;
-  @ViewChild("caja") caja: ElementRef;
+  @ViewChild("cajatitulo") cajatitulo: ElementRef;
   
   constructor(
     private _service: PeliculaService,
-    private _activeRoute: ActivatedRoute,
     private _router: Router
   ) { }
 
-  redirect(text){
-    this._router.navigate(["/peliculas", text]);
-  }
-
-  mostrarBusqueda(){
-    this.texto = this.caja.nativeElement.value;
-    //REDIRECT A OTRO COMPONENTE, PORQUE LO ESTAMOS HACIENDO CON ROUTING
-    //"['/peliculas/', texto]"
-    this.redirect(this.texto);
+  navigateBusqueda() {
+    var titulo = this.cajatitulo.nativeElement.value;
+    this._router.navigate(["/busqueda", titulo]);
   }
 
   ngOnInit(): void {

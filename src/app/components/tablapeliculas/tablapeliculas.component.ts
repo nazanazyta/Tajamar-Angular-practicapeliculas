@@ -9,23 +9,21 @@ import { Pelicula } from './../../models/pelicula';
 })
 export class TablaPeliculasComponent implements OnInit {
   public peliculas: Array<Pelicula>;
-  public genero: string;
-  public texto : string;
+  // public texto : string;
 
   constructor(
     private _service: PeliculaService,
     private _activeRoute: ActivatedRoute
   ) { }
 
-  mostrarPeliculas(idGen, genero) {
+  mostrarPeliculas(idGen) {
     this._service.getPeliculasGenero(idGen).subscribe(response => {
       this.peliculas = response;
     });
-    this.genero = genero;
   }
 
-  verPeliculas(tit) {
-    this._service.getPeliculas(tit).subscribe(response => {
+  verPeliculas() {
+    this._service.getPeliculas().subscribe(response => {
       this.peliculas = response;
     });
   }
@@ -33,12 +31,9 @@ export class TablaPeliculasComponent implements OnInit {
   ngOnInit(): void {
     this._activeRoute.params.subscribe(( params: Params ) => {
       if(params.idgenero != null){
-        var idGen = params.idgenero;
-        var genero = params.genero;
-        this.mostrarPeliculas(idGen, genero);
+        this.mostrarPeliculas(params.idgenero);
       }else{
-        this.texto = params.texto;
-        this.verPeliculas(this.texto);
+        this.verPeliculas();
       }
     });
   }

@@ -16,7 +16,12 @@ export class PeliculaService {
         return this._http.get(this.url + request);
     }
 
-    getPeliculasGenero(idgenero): Observable<any> {
+    getPeliculas(): Observable<any> {
+        var request = "api/peliculas";
+        return this._http.get(this.url + request);
+    }
+
+    getPeliculasGenero(idgenero: string): Observable<any> {
         var request = "api/peliculasgenero/" + idgenero;
         return this._http.get(this.url + request);
     }
@@ -26,7 +31,7 @@ export class PeliculaService {
         return this._http.get(this.url + request);
     }
 
-    getPeliculas(titulo): Observable<any> {
+    getPeliculasBusqueda(titulo): Observable<any> {
         var request = "api/peliculastitulo/" + titulo;
         return this._http.get(this.url + request);
     }

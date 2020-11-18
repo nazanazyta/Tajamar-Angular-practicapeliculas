@@ -24,8 +24,7 @@ export class DetallesPeliculaComponent implements OnInit {
 
   ngOnInit(): void {
     this._activeRoute.params.subscribe(( params: Params ) => {
-      var id = params.idpeli;
-      this.mostrarPelicula(id);
+      this.mostrarPelicula(params.idpeli);
     });
   }
 

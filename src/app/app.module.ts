@@ -9,13 +9,15 @@ import { MenuPeliculasComponent } from './components/menupeliculas/menupeliculas
 import { TablaPeliculasComponent } from './components/tablapeliculas/tablapeliculas.component';
 import { PeliculaService } from './services/pelicula.service';
 import { DetallesPeliculaComponent } from './components/detallespelicula/detallespelicula.component';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuPeliculasComponent,
     TablaPeliculasComponent,
-    DetallesPeliculaComponent
+    DetallesPeliculaComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule

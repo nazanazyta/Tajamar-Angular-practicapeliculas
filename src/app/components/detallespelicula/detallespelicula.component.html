@@ -1,7 +1,13 @@
-<div *ngIf="pelicula != null" style="margin: auto; width: 50%; text-align: center; background-color: lightcyan;">
+<div *ngIf="pelicula != null" style="margin: auto; width: 50%; background-color: lightcyan;">
+    <a [routerLink]="['/peliculas', pelicula.idGenero]" class="btn btn-info">Volver</a>
     <h1>{{ pelicula.titulo }}</h1>
     <img src="{{ pelicula.foto }}" style="width: 400px; height: 400px" /><hr />
     <p style="font-weight: bold;">{{ pelicula.argumento }}</p><br />
     <p>Duración: {{ pelicula.duracion }} minutos</p>
     <p>Precio: {{ pelicula.precio }}€</p>
+    <p>Actores: {{ pelicula.actores }}</p>
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/{​​​​{​​​​ pelicula.youTube }​​​​}​​​​"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
 </div>

@@ -3,14 +3,14 @@
         <thead>
             <tr>
                 <td>Título</td>
-                <td>Detalles</td>
+                <td>Foto</td>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let peli of peliculas">
                 <td>{{ peli.titulo }}</td>
                 <td>
-                    <a [routerLink]="['/detallespelicula', peli.idPelicula]" class="btn btn-info">Ver detalles</a>
+                    <img src="{{ peli.foto }}" style="width: 120px; height: 120px" />
                 </td>
             </tr>
         </tbody>
